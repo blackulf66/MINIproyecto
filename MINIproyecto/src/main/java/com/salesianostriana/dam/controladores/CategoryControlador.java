@@ -19,8 +19,8 @@ import java.util.List;
 @RequestMapping("/categoria")
 public class CategoryControlador {
 
-    private CategoryService categoryService;
-    private CategoryDtoConverter categoryDtoConverter;
+    private final CategoryService categoryService;
+    private final CategoryDtoConverter categoryDtoConverter;
 
     @GetMapping("/")
     public ResponseEntity<List<Category>> findAll(){ return ResponseEntity.ok().body(categoryService.findAll());}

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -13,15 +15,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreatePOIDto {
-
-    private Long id;
+    @NotBlank(message = "{poi.name.blank}")
     private String name;
+    @Pattern(regexp = "^([-+]?\\d{1,2}[.]\\d+),\\s*([-+]?\\d{1,3}[.]\\d+)$", message = "{poi.ubicacion}")
     private String location;
     private String descripcion;
     private LocalDateTime date;
     private String coverPhoto;
     private String photo2;
     private String photo3;
-    private Category category;
+    private Long category;
     private List<Route> routes;
 }

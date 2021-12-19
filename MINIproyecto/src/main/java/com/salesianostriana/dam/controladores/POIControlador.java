@@ -22,8 +22,8 @@ import java.util.List;
 @RequestMapping("/poi")
 public class POIControlador {
 
-    private POIService poiService;
-    private POIDtoConverter poiDtoConverter;
+    private final POIService poiService;
+    private final POIDtoConverter poiDtoConverter;
 
     @GetMapping("/")
     public ResponseEntity<List<POI>> findAll(){ return ResponseEntity.ok().body(poiService.findAll());}

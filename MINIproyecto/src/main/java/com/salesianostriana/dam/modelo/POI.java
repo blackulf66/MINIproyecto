@@ -40,10 +40,10 @@ public class POI implements Serializable {
 
     @ManyToMany
     @JoinTable(joinColumns = @JoinColumn(name = "poi_id",
-            foreignKey = @ForeignKey(name="FK_ROUTE_POI")),
-            inverseJoinColumns = @JoinColumn(name = "route_id",
-                    foreignKey = @ForeignKey(name="FK_ROUTE_POI")),
-            name = "route")
+               foreignKey = @ForeignKey(name="FK_ROUTE_POI")),
+               inverseJoinColumns = @JoinColumn(name = "route_id",
+                       foreignKey = @ForeignKey(name="FK_ROUTE_POI")),
+                name = "route")
     private List<Route> route = new ArrayList<>();
 
 

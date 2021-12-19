@@ -1,22 +1,26 @@
 package com.salesianostriana.dam.dto.POI;
 import com.salesianostriana.dam.modelo.POI;
+import com.salesianostriana.dam.servicios.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class POIDtoConverter {
+    @Autowired
+    private CategoryService categoryService;
+
         public POI createPOIDtoToPOI(CreatePOIDto c){
-            return new POI(
-                    c.getId(),
-                    c.getName(),
-                    c.getLocation(),
-                    c.getDescripcion(),
-                    c.getDate(),
-                    c.getCoverPhoto(),
-                    c.getPhoto2(),
-                    c.getPhoto3(),
-                    c.getCategory(),
-                    c.getRoutes()
-            );
+            return POI.builder()
+                    .name(c.getName())
+                    .coverPhoto(c.getCoverPhoto())
+                    .date(c.getDate())
+                    .descripcion(c.getDescripcion())
+                    .photo2(c.getPhoto2())
+                    .photo3(c.getPhoto3())
+                    .location(c.getLocation())
+                    .route(c.getRoutes())
+                    .category(categoryService.findById(c.getCategory()).get())
+                    .build();
         }
         public GetPOIDto POIToGetPOIDto(POI p){
             return GetPOIDto.builder()

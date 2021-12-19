@@ -12,5 +12,5 @@ import java.util.List;
 @AllArgsConstructor
 public class CreateRouteDto {
     private Long id;
-    private String steps;
+    private List<POI> steps;
 }

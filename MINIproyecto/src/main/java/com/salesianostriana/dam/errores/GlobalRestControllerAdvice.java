@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.errores;
 
 import com.salesianostriana.dam.errores.excepciones.EntityNotFoundException;
+import com.salesianostriana.dam.errores.excepciones.ListEntityNotFoundException;
 import com.salesianostriana.dam.errores.modelo.ApiError;
 import com.salesianostriana.dam.errores.modelo.ApiSubError;
 import com.salesianostriana.dam.errores.modelo.ApiValidationSubError;
@@ -25,6 +26,10 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
 
+    @ExceptionHandler({ListEntityNotFoundException.class})
+    public ResponseEntity<?> handleNotFoundException(ListEntityNotFoundException ex, WebRequest request) {
+        return buildApiError404(ex, request);
+    }
     @ExceptionHandler({EntityNotFoundException.class})
     public ResponseEntity<?> handleNotFoundException(EntityNotFoundException ex, WebRequest request) {
         return buildApiError404(ex, request);
