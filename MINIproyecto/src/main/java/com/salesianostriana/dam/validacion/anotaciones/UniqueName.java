@@ -1,6 +1,6 @@
-package com.salesianostriana.dam.validacion.simple.anotaciones;
+package com.salesianostriana.dam.validacion.anotaciones;
 
-import com.salesianostriana.dam.validacion.simple.validadores.UniqueNameValidator;
+import com.salesianostriana.dam.validacion.validadores.UniqueNameValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

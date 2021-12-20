@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.controladores;
 
 
+import com.salesianostriana.dam.dto.POI.CreatePOIDto;
 import com.salesianostriana.dam.dto.route.CreateRouteDto;
 import com.salesianostriana.dam.dto.route.GetRouteDto;
 import com.salesianostriana.dam.dto.route.RouteDtoConverter;
@@ -47,7 +48,18 @@ public class RouteControlador {
         routeService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
-    /*
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Route> edit(@RequestBody @Valid CreateRouteDto c, @PathVariable Long id){
+        return ResponseEntity.of(
+                routeService.findById(id).map(a ->{
+                    a.setName(c.getName());
+                    a.setSteps(c.getSteps());
+                   return routeService.save(a);
+                }) );
+
+    }
+
     @PostMapping("/{id}/interes/{id2}")
     public ResponseEntity<GetRouteDto> addPoi(@Valid @PathVariable("id")Long id, @PathVariable("id2")Long id2){
         Route route = routeService.findById(id).get();
@@ -64,5 +76,5 @@ public class RouteControlador {
         poi.removeFromRoute(route);
         poiService.save(poi);
         return ResponseEntity.ok().body(routeDtoConverter.routeToGetrouteDto(route));
-    }*/
+    }
 }

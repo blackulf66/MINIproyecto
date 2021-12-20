@@ -5,7 +5,6 @@ import com.salesianostriana.dam.dto.category.CreateCategoryDto;
 import com.salesianostriana.dam.dto.category.GetCategoryDto;
 import com.salesianostriana.dam.modelo.Category;
 import com.salesianostriana.dam.servicios.CategoryService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,12 +38,19 @@ public class CategoryControlador {
         GetCategoryDto categoryDto = categoryDtoConverter.categoryToGetCategoryDto(category);
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryDto);
     }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         categoryService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<Category> edit(@RequestBody @Valid CreateCategoryDto c, @PathVariable Long id){
+            return ResponseEntity.of(
+                    categoryService.findById(id).map(a ->{
+                        a.setName(c.getName());
+                        return categoryService.save(a);
+                    }) );
 
+    }
 
 }

@@ -1,8 +1,6 @@
 package com.salesianostriana.dam.dto.POI;
 
-import com.salesianostriana.dam.modelo.Category;
-import com.salesianostriana.dam.modelo.Route;
-import com.salesianostriana.dam.validacion.simple.anotaciones.UniqueName;
+import com.salesianostriana.dam.validacion.anotaciones.UniqueName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @NoArgsConstructor

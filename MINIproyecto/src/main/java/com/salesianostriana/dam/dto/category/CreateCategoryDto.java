@@ -1,7 +1,7 @@
 package com.salesianostriana.dam.dto.category;
 
 
-import com.salesianostriana.dam.validacion.simple.anotaciones.UniqueName;
+import com.salesianostriana.dam.validacion.anotaciones.UniqueName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

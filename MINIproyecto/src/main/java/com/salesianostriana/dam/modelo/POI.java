@@ -43,6 +43,14 @@ public class POI implements Serializable {
 
     public void removeFromRoute(Route u) {u.getSteps().remove(this);u = null;}
 
+    public void nullcategory(Category c){
+        if (c.getName() == null){
+            c.setName("sin categoria");
+        }else{
+
+        }
+    }
+
 
 
 }

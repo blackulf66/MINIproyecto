@@ -1,7 +1,7 @@
-package com.salesianostriana.dam.validacion.simple.validadores;
+package com.salesianostriana.dam.validacion.validadores;
 
 import com.salesianostriana.dam.repositorios.CategoryRepositorio;
-import com.salesianostriana.dam.validacion.simple.anotaciones.UniqueName;
+import com.salesianostriana.dam.validacion.anotaciones.UniqueName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
