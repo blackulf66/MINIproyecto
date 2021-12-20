@@ -1,9 +1,10 @@
 package com.salesianostriana.dam.dto.POI;
 
-import com.salesianostriana.dam.validacion.anotaciones.UniqueName;
+import com.salesianostriana.dam.validacion.anotaciones.UniquePOI;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.URL;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -19,12 +20,10 @@ public class CreatePOIDto {
     private String location;
     private String descripcion;
     private LocalDateTime date;
-    @UniqueName(message = "{url.unico}")
-    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
+    @URL
+    @UniquePOI(message = "{url.unico}")
     private String coverPhoto;
-    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
     private String photo2;
-    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
     private String photo3;
     private Long category;
 

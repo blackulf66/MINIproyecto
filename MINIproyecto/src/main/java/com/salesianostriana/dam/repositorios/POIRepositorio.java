@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface POIRepositorio extends JpaRepository<POI, Long> {
 
+    boolean existsByName(String name);
+
 }

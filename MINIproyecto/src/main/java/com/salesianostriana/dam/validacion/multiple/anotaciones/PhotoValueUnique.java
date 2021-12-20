@@ -14,8 +14,17 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PhotoValueUnique {
 
-    String message() default "la foto debe ser unica";
+
+    String message() default "la url no es valida";
+
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 
+    String field();
+
+    @Target({ElementType.TYPE, ElementType.FIELD})
+    @Retention(RetentionPolicy.RUNTIME)
+    @interface List{
+        PhotoValueUnique[] value();
+    }
 }
