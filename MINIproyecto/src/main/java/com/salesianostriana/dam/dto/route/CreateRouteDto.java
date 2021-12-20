@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateRouteDto {
-    private Long id;
+
     @UniqueRoute(message = "{route.nombre.unico}")
     private String name;
     private List<POI> steps;

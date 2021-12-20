@@ -10,11 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class RouteDtoConverter {
     public Route createRouteDtoToRoute(CreateRouteDto c){
-        return new Route(
-                c.getId(),
-                c.getName(),
-                c.getSteps()
-        );
+        return  Route.builder()
+                .name(c.getName())
+                .steps(c.getSteps())
+                .build();
     }
     public GetRouteDto routeToGetrouteDto(Route c){
         return GetRouteDto.builder()
