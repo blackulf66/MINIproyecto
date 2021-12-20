@@ -59,7 +59,6 @@ public class RouteControlador {
                 }) );
 
     }
-
     @PostMapping("/{id}/interes/{id2}")
     public ResponseEntity<GetRouteDto> addPoi(@Valid @PathVariable("id")Long id, @PathVariable("id2")Long id2){
         Route route = routeService.findById(id).get();

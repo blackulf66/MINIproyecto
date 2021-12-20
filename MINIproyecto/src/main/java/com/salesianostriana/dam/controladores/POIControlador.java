@@ -4,9 +4,6 @@ package com.salesianostriana.dam.controladores;
 import com.salesianostriana.dam.dto.POI.CreatePOIDto;
 import com.salesianostriana.dam.dto.POI.GetPOIDto;
 import com.salesianostriana.dam.dto.POI.POIDtoConverter;
-import com.salesianostriana.dam.dto.category.CreateCategoryDto;
-import com.salesianostriana.dam.dto.category.GetCategoryDto;
-import com.salesianostriana.dam.modelo.Category;
 import com.salesianostriana.dam.modelo.POI;
 import com.salesianostriana.dam.servicios.CategoryService;
 import com.salesianostriana.dam.servicios.POIService;
@@ -36,6 +33,7 @@ public class POIControlador {
     public ResponseEntity<GetPOIDto> findOne(@PathVariable Long id){
         return ResponseEntity.ok().body(poiDtoConverter.POIToGetPOIDto(poiService.findById(id).get()));
     }
+
     @PostMapping("/")
     public ResponseEntity<GetPOIDto> create(@Valid @RequestBody CreatePOIDto c){
         POI POI = poiDtoConverter.createPOIDtoToPOI(c);
@@ -43,6 +41,7 @@ public class POIControlador {
         GetPOIDto POIDto = poiDtoConverter.POIToGetPOIDto(POI);
         return ResponseEntity.status(HttpStatus.CREATED).body(POIDto);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         poiService.deleteById(id);
@@ -63,8 +62,6 @@ public class POIControlador {
                     a.setPhoto3(c.getPhoto3());
                     return poiService.save(a);
                 }) );
-
     }
-
 
 }

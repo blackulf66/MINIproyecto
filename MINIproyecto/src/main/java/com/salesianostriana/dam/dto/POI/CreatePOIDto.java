@@ -19,11 +19,12 @@ public class CreatePOIDto {
     private String location;
     private String descripcion;
     private LocalDateTime date;
-
-    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
     @UniqueName(message = "{url.unico}")
+    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
     private String coverPhoto;
+    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
     private String photo2;
+    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
     private String photo3;
     private Long category;
 
