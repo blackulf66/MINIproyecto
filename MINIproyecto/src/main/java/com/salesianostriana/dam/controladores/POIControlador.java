@@ -26,7 +26,9 @@ public class POIControlador {
     private final POIDtoConverter poiDtoConverter;
 
     @GetMapping("/")
-    public ResponseEntity<List<POI>> findAll(){ return ResponseEntity.ok().body(poiService.findAll());}
+    public ResponseEntity<List<POI>> findAll(){
+        return ResponseEntity.ok().body(poiService.findAll());
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<GetPOIDto> findOne(@PathVariable Long id){

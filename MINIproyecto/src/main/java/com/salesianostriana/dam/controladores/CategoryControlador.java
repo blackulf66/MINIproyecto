@@ -23,12 +23,15 @@ public class CategoryControlador {
     private final CategoryDtoConverter categoryDtoConverter;
 
     @GetMapping("/")
-    public ResponseEntity<List<Category>> findAll(){ return ResponseEntity.ok().body(categoryService.findAll());}
+    public ResponseEntity<List<Category>> findAll(){
+        return ResponseEntity.ok().body(categoryService.findAll());
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<GetCategoryDto> findOne(@PathVariable Long id){
         return ResponseEntity.ok().body(categoryDtoConverter.categoryToGetCategoryDto(categoryService.findById(id).get()));
     }
+
     @PostMapping("/")
     public ResponseEntity<GetCategoryDto> create(@Valid @RequestBody CreateCategoryDto c){
         Category category = categoryDtoConverter.createCategoryDtoToCategory(c);
@@ -36,6 +39,7 @@ public class CategoryControlador {
         GetCategoryDto categoryDto = categoryDtoConverter.categoryToGetCategoryDto(category);
         return ResponseEntity.status(HttpStatus.CREATED).body(categoryDto);
     }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         categoryService.deleteById(id);

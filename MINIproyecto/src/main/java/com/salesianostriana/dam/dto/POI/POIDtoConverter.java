@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.dto.POI;
 import com.salesianostriana.dam.modelo.POI;
 import com.salesianostriana.dam.servicios.CategoryService;
+import com.salesianostriana.dam.servicios.RouteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 public class POIDtoConverter {
     @Autowired
     private CategoryService categoryService;
+    private RouteService routeService;
 
         public POI createPOIDtoToPOI(CreatePOIDto c){
             return POI.builder()
@@ -18,7 +20,6 @@ public class POIDtoConverter {
                     .photo2(c.getPhoto2())
                     .photo3(c.getPhoto3())
                     .location(c.getLocation())
-                    .route(c.getRoutes())
                     .category(categoryService.findById(c.getCategory()).get())
                     .build();
         }
@@ -33,7 +34,6 @@ public class POIDtoConverter {
                     .photo2(p.getPhoto2())
                     .photo3(p.getPhoto3())
                     .location(p.getLocation())
-                    .routes(p.getRoute())
                     .build();
         }
     }

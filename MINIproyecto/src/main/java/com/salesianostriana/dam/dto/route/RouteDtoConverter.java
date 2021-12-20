@@ -12,12 +12,14 @@ public class RouteDtoConverter {
     public Route createRouteDtoToRoute(CreateRouteDto c){
         return new Route(
                 c.getId(),
+                c.getName(),
                 c.getSteps()
         );
     }
     public GetRouteDto routeToGetrouteDto(Route c){
         return GetRouteDto.builder()
                 .id(c.getId())
+                .name(c.getName())
                 .steps(c.getSteps())
                 .build();
     }

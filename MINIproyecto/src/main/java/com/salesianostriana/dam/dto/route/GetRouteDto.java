@@ -14,5 +14,6 @@ import java.util.List;
 @Builder
 public class GetRouteDto {
     private Long id;
+    private String name;
     private List<POI> steps;
 }

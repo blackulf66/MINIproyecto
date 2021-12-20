@@ -11,14 +11,15 @@ import javax.validation.ConstraintValidatorContext;
 public class UniqueNameValidator implements ConstraintValidator<UniqueName , String> {
 
     @Autowired
-    private CategoryRepositorio supositorio;
+    private CategoryRepositorio rep;
 
     @Override
     public void initialize(UniqueName constraintAnnotation) {
     }
+
     @Override
     public boolean isValid(String name, ConstraintValidatorContext context) {
-        return StringUtils.hasText(name) && !supositorio.existsByName(name);
+        return StringUtils.hasText(name) && !rep.existsByName(name);
     }
 
 }

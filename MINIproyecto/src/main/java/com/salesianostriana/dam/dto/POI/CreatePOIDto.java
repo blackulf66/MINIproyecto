@@ -2,6 +2,7 @@ package com.salesianostriana.dam.dto.POI;
 
 import com.salesianostriana.dam.modelo.Category;
 import com.salesianostriana.dam.modelo.Route;
+import com.salesianostriana.dam.validacion.simple.anotaciones.UniqueName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,9 +22,12 @@ public class CreatePOIDto {
     private String location;
     private String descripcion;
     private LocalDateTime date;
+
+    @Pattern(regexp = "(http)?s?:?(\\/\\/[^\"']*\\.(?:png|jpg|jpeg|gif|png|svg))", message="{url.ruta.valido}")
+    @UniqueName(message = "{url.unico}")
     private String coverPhoto;
     private String photo2;
     private String photo3;
     private Long category;
-    private List<Route> routes;
+
 }

@@ -38,13 +38,10 @@ public class POI implements Serializable {
     @JoinColumn(name = "category", foreignKey = @ForeignKey(name = "FK_POI_Category"))
     private Category category;
 
-    @ManyToMany
-    @JoinTable(joinColumns = @JoinColumn(name = "poi_id",
-               foreignKey = @ForeignKey(name="FK_ROUTE_POI")),
-               inverseJoinColumns = @JoinColumn(name = "route_id",
-                       foreignKey = @ForeignKey(name="FK_ROUTE_POI")),
-                name = "route")
-    private List<Route> route = new ArrayList<>();
+    //helpers
+    public void addToRoute(Route r){r.getSteps().add(this);}
+
+    public void removeFromRoute(Route u) {u.getSteps().remove(this);u = null;}
 
 
 

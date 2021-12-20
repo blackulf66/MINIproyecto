@@ -30,5 +30,5 @@ public class GetPOIDto {
     private String photo2;
     private String photo3;
     private Category category;
-    private List<Route> routes;
+
 }
